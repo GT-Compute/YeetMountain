@@ -7,6 +7,8 @@ public class jumpTest : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject go;
     public bool canJump = true;
+    public bool canLeft = true;
+    public bool canRight = true;
     public float jumpForce = 10.0f;
     public float moveForce = 20.0f;
     public float takeoff = 0.5f;
@@ -27,7 +29,7 @@ public class jumpTest : MonoBehaviour
             rb.AddForce(transform.up * jumpForce);
         }
 
-        if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0 && canLeft)
         {
             if(rb.velocity.x <  0.0f)
             {
@@ -36,7 +38,7 @@ public class jumpTest : MonoBehaviour
             
 
             rb.AddForce((transform.right * Input.GetAxis("Horizontal")) * Time.deltaTime * moveForce);
-        } else if (Input.GetAxis("Horizontal") > 0)
+        } else if (Input.GetAxis("Horizontal") > 0 && canRight)
         {
             if (rb.velocity.x > 0)
             {

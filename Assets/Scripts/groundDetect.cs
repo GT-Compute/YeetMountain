@@ -14,15 +14,17 @@ public class groundDetect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collsion");
+
         if (collision.tag.Equals("ground"))
         {
             var playercontroller = player.GetComponent<jumpTest>();
             playercontroller.canJump = true;
-            Debug.Log("collion ground");
+            
+
         }
 
     }
+
 
     // Update is called once per frame
     void Update()
